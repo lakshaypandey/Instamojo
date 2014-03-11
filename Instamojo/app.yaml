@@ -9,3 +9,4 @@ handlers:
   script: SaleDBLogHandler.application
 - url: /excel_logger
   script: SaleExcelLoghandlerCron.application
+  login: admin

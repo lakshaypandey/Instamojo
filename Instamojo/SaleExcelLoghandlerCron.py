@@ -10,16 +10,11 @@ class SaleExcelLoghandlerCron(webapp2.RequestHandler):
 	def get(self):
 		# try:
 			gc = gspread.login('test.instamojo@gmail.com', 'insta_mojo_test')
-			logging.info("test")
 			wks = gc.open("Test").sheet1
 			qry = Sale.query(Sale.excel_log_status == True)
 			line_count = qry.count()
-			logging.info("ct" + str(line_count))
 			qry = Sale.query(Sale.excel_log_status == False)
-			
 			results = qry.fetch()
-			logging.info("resultss" + str(line_count))
-			self.response.write("testse")
 			line_count=line_count+2
 			
 			for sale_item in results:
